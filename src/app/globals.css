@@ -27,3 +27,19 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+html {
+  font-size: 16px; /* 最小字体为 16px */
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 18px; /* 小屏幕字体更大 */
+  }
+}
+
+@media (min-width: 1024px) {
+  html {
+    font-size: 16px; /* 宽屏最小字体保持为 16px */
+  }
+}

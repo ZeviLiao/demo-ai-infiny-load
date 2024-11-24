@@ -1,0 +1,52 @@
+.container {
+    padding: 2rem;
+    font-family: Arial, sans-serif;
+    line-height: 1.8;
+    max-width: 1200px; /* 宽版设计 */
+    margin: 0 auto;
+  }
+  
+  .title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+  }
+  
+  .paragraph {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    text-indent: 1em; /* 首行縮進 */
+    text-align: justify;
+    position: relative; /* 確保子元素基於段落 */
+  }
+  
+  .firstLetter {
+    font-size: 1.5rem; /* 首字稍大 */
+    font-weight: bold;
+    margin-right: 0.2em;
+    display: inline-block; /* 讓首字與後續文字保持自然流 */
+    vertical-align: baseline; /* 與段落文字對齊 */
+  }
+  
+  
+  .footer {
+    font-size: 0.875rem;
+    border-top: 1px solid #ccc;
+    padding-top: 1rem;
+    margin-top: 2rem;
+    color: #555;
+  }
+  
+  .author {
+    font-weight: bold;
+  }
+  
+  .intro {
+    font-style: italic;
+  }
+  
+  .updated {
+    margin-top: 0.5rem;
+    color: #888;
+  }
+  
