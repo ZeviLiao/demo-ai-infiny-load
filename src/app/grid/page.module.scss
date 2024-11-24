@@ -1,0 +1,91 @@
+@function relative-luminance($color) {
+    $r: red($color) / 255;
+    $g: green($color) / 255;
+    $b: blue($color) / 255;
+  
+    // 處理紅色通道
+    @if $r < 0.03928 {
+      $r: $r / 12.92;
+    } @else {
+      $r: pow(($r + 0.055) / 1.055, 2.4);
+    }
+  
+    // 處理綠色通道
+    @if $g < 0.03928 {
+      $g: $g / 12.92;
+    } @else {
+      $g: pow(($g + 0.055) / 1.055, 2.4);
+    }
+  
+    // 處理藍色通道
+    @if $b < 0.03928 {
+      $b: $b / 12.92;
+    } @else {
+      $b: pow(($b + 0.055) / 1.055, 2.4);
+    }
+  
+    // 返回相對亮度
+    @return 0.2126 * $r + 0.7152 * $g + 0.0722 * $b;
+  }
+  
+  
+  @function text-color($background-color) {
+    $luminance: relative-luminance($background-color);
+
+    @debug $background-color, $luminance;
+  
+    @if $luminance > 0.5 {
+      @return #000; // 背景亮，使用黑色文字
+    } @else {
+      @return #fff; // 背景暗，使用白色文字
+    }
+  }
+  
+
+
+  $bg-colors: (
+    #ffb6c1,
+    #ffd700,
+    #87cefa,
+    #98fb98,
+    #ff69b4,
+    #ffa07a,
+    #ee82ee,
+    #adff2f,
+    #20b2aa,
+    #ff6347,
+    #00ced1,
+    #ff7f50
+  );
+  
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  max-width: 940px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: #f4f4f4;
+}
+
+$index: 1;
+@each $color in $bg-colors {
+  .box:nth-child(#{$index}) {
+    background-color: $color;
+    color: text-color($color);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 16px;
+    transition: transform 0.3s, box-shadow 0.3s;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+  }
+  $index: $index + 1;
+}
