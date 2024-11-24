@@ -6,7 +6,7 @@ export default {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  darkMode: 'class', // 使用 class 切換暗色模式
+  darkMode: 'class', // 使用 selector 切換暗色模式
   theme: {
     extend: {
       colors: {
